@@ -18,7 +18,6 @@ class ranges {
     }
 
     public boolean checkRange() {
-        // String range = getRange();
         StringTokenizer st = new StringTokenizer(getRange(), "-,");
         ArrayList<Integer> tokens = new ArrayList<>();
         while (st.hasMoreTokens()) {
@@ -31,14 +30,11 @@ class ranges {
     }
 
     public boolean checkOverlapRange() {
-        // String range = getRange();
         StringTokenizer st = new StringTokenizer(getRange(), "-,");
         ArrayList<Integer> tokens = new ArrayList<>();
         while (st.hasMoreTokens()) {
             tokens.add(Integer.parseInt(st.nextToken()));
-
         }
-
         return ((tokens.get(2) <= tokens.get(1)) && (tokens.get(3) >= tokens.get(0)));
     }
 
@@ -55,14 +51,13 @@ public class Day4 {
             int inRangeCount=0;
             int overlapCount=0;
             while ((st = br.readLine()) != null) {
-                // Print the string
+               //in ranges puzzle
                 r1.setRange(st);
-                System.out.println("Range :" + r1.getRange());
                 boolean inRange = r1.checkRange();
                 if (inRange) {
                     inRangeCount+= 1;
                 }
-
+                //overlapRange puzzle
                 boolean overlapRange = r1.checkOverlapRange();
                 if (overlapRange) {
                     overlapCount+= 1;
